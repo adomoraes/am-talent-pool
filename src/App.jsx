@@ -96,24 +96,25 @@ export default function App() {
 		}
 
 		// Envio do e-mail
-		const { data: emailData, error: emailError } = await supabase
-			.from("supabase_functions.send_email")
-			.insert([
-				{
-					to: data.email,
-					subject: "Confirmação de Cadastro",
-					html: `<p>Olá ${data.name}, seu currículo foi cadastrado com sucesso!</p>`,
-				},
-			])
+		// const { data: emailData, error: emailError } = await supabase
+		// 	.from("supabase_functions.send_email")
+		// 	.insert([
+		// 		{
+		// 			to: data.email,
+		// 			subject: "Confirmação de Cadastro",
+		// 			html: `<p>Olá ${data.name}, seu currículo foi cadastrado com sucesso!</p>`,
+		// 		},
+		// 	])
 
-		if (emailError) {
-			console.error("Erro ao enviar e-mail:", emailError.message)
-			return
-		}
+		// if (emailError) {
+		// 	console.error("Erro ao enviar e-mail:", emailError.message)
+		// 	return
+		// }
 	}
 
 	return (
 		<main className='text-zinc-300 flex flex-col gap-10 items-center justify-center'>
+			<h1 className='mt-4 text-4xl font-black	text-white'>AM Talent Pool</h1>
 			<form
 				onSubmit={handleSubmit(createUser)}
 				className='flex flex-col gap-4 w-full max-w-xs'>
